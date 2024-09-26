@@ -1,0 +1,11 @@
+IF USER Exist with username and verified then
+    return with User with this username already exists
+
+IF USER Exist with email
+    IF USER is verified then
+        return with User with this email Already Exist
+    ELSE USER email exist but is not verified then
+        //SAVE new details of user and send verification email
+
+ELSE USER does not exist with email
+    CREATE new User
