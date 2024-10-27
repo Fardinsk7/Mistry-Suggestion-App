@@ -22,7 +22,7 @@ export default async function RootLayout({ children }: RootLayoutProps) {
       <AuthProvider>
         <body className={inter.className}>
           {children}
-          <ClientSideToaster />
+          {/* <ClientSideToaster /> */}
         </body>
       </AuthProvider>
     </html>

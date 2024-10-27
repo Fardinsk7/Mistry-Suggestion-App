@@ -17,7 +17,7 @@ import { Loader2 } from "lucide-react"
 import { Toaster } from "@/components/ui/toaster"
 
 
-const page = () => {
+const Signup = () => {
   const { toast } = useToast()
   const [username, setUsername] = useState("");
   const [usernameMessage, setUsernameMessage] = useState("");
@@ -181,4 +181,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Signup

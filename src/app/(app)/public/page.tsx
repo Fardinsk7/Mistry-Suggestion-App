@@ -2,6 +2,7 @@
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
+import { Toaster } from '@/components/ui/toaster';
 import { useToast } from '@/components/ui/use-toast';
 import { User } from '@/model/User';
 import { messageSchema } from '@/schemas/messageSchema';
@@ -16,7 +17,7 @@ import { z } from "zod";
 
 type FormData = z.infer<typeof messageSchema>
 
-const page = () => {
+const Public = () => {
   const { data: session } = useSession();
   const user: User = session?.user as User;
   const router = useRouter()
@@ -109,7 +110,7 @@ const page = () => {
 
           {
             !(randomSuggestion.length <= 0) ? (
-              randomSuggestion.map((e) => (<div className='m-1 border border-black-500 p-2 text-center cursor-pointer' onClick={()=>randomMessageToInput(e)}>{e}</div>))
+              randomSuggestion.map((e,i) => (<div key={i} className='m-1 border border-black-500 p-2 text-center cursor-pointer' onClick={()=>randomMessageToInput(e)}>{e}</div>))
             ) : (
               <div className='m-1 border border-black-500 p-2 text-center' aria-disabled={randomSuggestionLoading}>{randomSuggestionLoading?"Please Wait":"Random Suggestion"}</div>
             )
@@ -131,8 +132,9 @@ const page = () => {
         </>
         )}
       </div>
+      <Toaster/>
     </>
   )
 }
 
-export default page
+export default Public

@@ -17,7 +17,7 @@ import { usePathname } from 'next/navigation';
 import React, { useCallback, useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form';
 
-const page = () => {
+const Dashboard = () => {
   const [messages, setMessages] = useState<Message[]>([]);
   const {toast} = useToast();
   const [isLoading, setIsLoading] = useState(false);
@@ -50,7 +50,7 @@ const page = () => {
     }finally{
       setIsSwitchLoading(false);
     }
-  },[setValue])
+  },[setValue,toast])
 
   const fetchMessages = useCallback(async (refresh:boolean = false)=>{
     setIsLoading(true);
@@ -75,7 +75,7 @@ const page = () => {
       setIsLoading(false)
       setIsSwitchLoading(false)
     }
-  },[setIsLoading, setMessages])
+  },[setIsLoading, setMessages, toast])
 
   const handleSwitchChange = async()=>{
     setIsSwitchLoading(true)
@@ -195,4 +195,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Dashboard

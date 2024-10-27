@@ -18,7 +18,7 @@ import { signIn } from "next-auth/react"
 import { Toaster } from "@/components/ui/toaster"
 
 
-const page = () => {
+const Signin = () => {
   const { toast } = useToast()
   const [usernameMessage, setUsernameMessage] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -136,7 +136,7 @@ const page = () => {
         </Form>
         <div className="text-center mt-4">
           <p>
-            Don't have an Account?{' '}
+            Do not have an Account?{' '}
             <Link href={'/sign-up'} className="text-blue-600 hover:text-blue-800">Sign Up</Link>
           </p>
         </div>
@@ -147,4 +147,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Signin
